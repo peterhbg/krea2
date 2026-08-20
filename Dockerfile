@@ -1,7 +1,7 @@
 FROM runpod/worker-comfyui:5.8.6-base
 RUN comfy-node-install comfyui-kjnodes rgthree-comfy comfyui-easy-use ComfyUI-GGUF ComfyUI-Crystools cg-use-everywhere
 # download models using comfy-cli comfyui-impact-pack  comfyui-impact-subpack comfyui_controlnet_aux  comfyui_essentials 
-RUN comfy model download --url https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_turbo_bf16.safetensors --relative-path models/checkpoints --filename krea2_turbo_bf16.safetensors
+RUN comfy model download --url https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_turbo_bf16.safetensors --relative-path models/unet --filename krea2_turbo_bf16.safetensors
 # Copy local static input files into the ComfyUI input directory
 COPY input/ /comfyui/input/
 RUN comfy model download --url https://huggingface.co/Comfy-Org/Krea-2/resolve/main/text_encoders/qwen3vl_4b_bf16.safetensors --relative-path models/text_encoders --filename qwen3vl_4b_bf16.safetensors
